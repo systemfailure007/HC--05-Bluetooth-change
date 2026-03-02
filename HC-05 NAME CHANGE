@@ -1,0 +1,18 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial bt(D4, D8);  // RX, TX
+
+void setup() {
+  Serial.begin(9600);
+  bt.begin(38400);   // AT mode default baud rate
+  Serial.println("Enter AT commands:");
+}
+
+void loop() {
+  if (Serial.available()) {
+    bt.write(Serial.read());
+  }
+  if (bt.available()) {
+    Serial.write(bt.read());
+  }
+}
