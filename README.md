@@ -1,17 +1,13 @@
-How to Change HC-05 Name to "Ctrlnest"
-🔹 Step 1: Put HC-05 in AT Mode
+**How to Change HC-05 Name to "Ctrlnest"**
 
-Disconnect power.
-
+🔹 **Step 1:** Put HC-05 in AT Mode Disconnect power.
 Hold the EN/KEY button on HC-05.
-
 While holding, power ON the module.
-
 LED should blink slowly (2 sec interval) → AT mode activated.
 
-🔹 Step 2: Upload This Temporary AT Code
+🔹 **Step 2:** Upload This Temporary AT Code
 
-Upload this simple sketch to ESP8266:
+**Upload this simple sketch to ESP8266:**
 
 #include <SoftwareSerial.h>
 
@@ -32,17 +28,15 @@ void loop() {
   }
 }
 
-⚠ In AT mode, HC-05 baud rate is usually 38400.
 
-🔹 Step 3: Send These Commands in Serial Monitor
 
-Set:
+🔹 **Step 3:** Send These Commands in Serial Monitor
+SET
+**Baud: 9600**
 
-Baud: 9600
+**"Both NL & CR"**
 
-"Both NL & CR"
-
-Then type:
+**Then type**:
 
 AT
 
@@ -52,7 +46,7 @@ OK
 
 Now change name:
 
-AT+NAME=Ctrlnest
+**AT+NAME=CtrlNest**
 
 Response:
 
@@ -63,7 +57,7 @@ Now when you scan Bluetooth, it will show:
 
 👉 Ctrlnest
 
-✅ After That
+✅ **After That**
 
 Upload your original Sinric + Bluetooth code again.
 No changes needed in your main program.
